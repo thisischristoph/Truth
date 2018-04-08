@@ -7,16 +7,60 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKCoreKit
+import GoogleSignIn
+import FirebaseInstanceID
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyboard: UIStoryboard?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        
+        self.storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
+        let currentUser = Auth.auth().currentUser
+        
+        if currentUser != nil{
+            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeView")
+        }
+        else{
+            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginView")
+        }
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        var handled = false
+        if url.absoluteString.contains("fb") {
+            handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        } else {
+            handled = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+        }
+        return handled
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print(signOutError)
+        }
+    }
+    
+    func connectToFcm() {
+        guard InstanceID.instanceID().token() != nil else {
+            return;
+        }
+        Messaging.messaging().shouldEstablishDirectChannel = false
+        Messaging.messaging().shouldEstablishDirectChannel = true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -25,8 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        Messaging.messaging().shouldEstablishDirectChannel = false
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -34,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        connectToFcm()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
