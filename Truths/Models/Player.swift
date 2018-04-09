@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 struct Player {
-    let key: String
+    let key: String?
     var name: String
     let uid: String
     let profileURLString: String
@@ -18,7 +18,7 @@ struct Player {
     let ref: DatabaseReference?
     
     init(
-        key: String = "",
+        key: String?,
         name: String,
         uid: String,
         profileURLString: String = "",

@@ -31,6 +31,10 @@
 		DFFE2717207AC5C80011F000 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE2715207AC5C80011F000 /* HomeCollectionViewCell.swift */; };
 		DFFE2718207AC5C80011F000 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFFE2716207AC5C80011F000 /* HomeCollectionViewCell.xib */; };
 		DFFE271A207ACC3B0011F000 /* RoundUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE2719207ACC3B0011F000 /* RoundUIView.swift */; };
+		DFFE271D207C05CC0011F000 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE271C207C05CC0011F000 /* FirebaseManager.swift */; };
+		DFFE271F207C08690011F000 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE271E207C08690011F000 /* PlayerManager.swift */; };
+		DFFE2721207C0EEE0011F000 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE2720207C0EEE0011F000 /* QRCode.swift */; };
+		DFFE2724207C122E0011F000 /* JoiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE2723207C122E0011F000 /* JoiningViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		DFFE2715207AC5C80011F000 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		DFFE2716207AC5C80011F000 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		DFFE2719207ACC3B0011F000 /* RoundUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundUIView.swift; sourceTree = "<group>"; };
+		DFFE271C207C05CC0011F000 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		DFFE271E207C08690011F000 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
+		DFFE2720207C0EEE0011F000 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		DFFE2723207C122E0011F000 /* JoiningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoiningViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,13 +133,14 @@
 				DFFE26FC207A23010011F000 /* Models */,
 				DFFE26F9207A19950011F000 /* Login */,
 				DFFE2711207A8B240011F000 /* HomeViewController */,
+				DFFE2722207C12030011F000 /* JoiningViewController */,
 				DFFE26D7207A10CC0011F000 /* Main.storyboard */,
-				DFFE2705207A26FC0011F000 /* AuthManager.swift */,
 				DFFE26DA207A10CD0011F000 /* Assets.xcassets */,
 				DFFE26DC207A10CD0011F000 /* LaunchScreen.storyboard */,
 				DFFE26DF207A10CD0011F000 /* Info.plist */,
 				DFFE2707207A28390011F000 /* GoogleService-Info.plist */,
 				DFFE26F6207A15030011F000 /* Views */,
+				DFFE271B207C05AC0011F000 /* Managers */,
 			);
 			path = Truths;
 			sourceTree = "<group>";
@@ -151,6 +160,7 @@
 			children = (
 				DFFE26F7207A151E0011F000 /* RoundedButton.swift */,
 				DFFE2719207ACC3B0011F000 /* RoundUIView.swift */,
+				DFFE2720207C0EEE0011F000 /* QRCode.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +218,24 @@
 				DFFE2716207AC5C80011F000 /* HomeCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DFFE271B207C05AC0011F000 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE271C207C05CC0011F000 /* FirebaseManager.swift */,
+				DFFE271E207C08690011F000 /* PlayerManager.swift */,
+				DFFE2705207A26FC0011F000 /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DFFE2722207C12030011F000 /* JoiningViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE2723207C122E0011F000 /* JoiningViewController.swift */,
+			);
+			path = JoiningViewController;
 			sourceTree = "<group>";
 		};
 		ED23F0C5BAE90481ADF7A437 /* Pods */ = {
@@ -351,6 +379,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Hashids/Hashids.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -363,6 +392,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hashids.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -465,8 +495,12 @@
 			files = (
 				DFFE2703207A25F20011F000 /* LogoutTableViewCell.swift in Sources */,
 				DFFE270A207A68A30011F000 /* Game.swift in Sources */,
+				DFFE271D207C05CC0011F000 /* FirebaseManager.swift in Sources */,
 				DFFE2706207A26FC0011F000 /* AuthManager.swift in Sources */,
+				DFFE2724207C122E0011F000 /* JoiningViewController.swift in Sources */,
 				DFFE2710207A6B9E0011F000 /* Statement.swift in Sources */,
+				DFFE2721207C0EEE0011F000 /* QRCode.swift in Sources */,
+				DFFE271F207C08690011F000 /* PlayerManager.swift in Sources */,
 				DFFE271A207ACC3B0011F000 /* RoundUIView.swift in Sources */,
 				DFFE26D2207A10CC0011F000 /* AppDelegate.swift in Sources */,
 				DFFE26FB207A19A40011F000 /* LoginViewController.swift in Sources */,

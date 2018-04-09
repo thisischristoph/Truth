@@ -31,7 +31,7 @@ struct StatementSet {
         key = snapshot.key
         let snapshotValue = snapshot.value as! [String: AnyObject]
         played = snapshotValue["played"] as? Bool ?? false
-        statements = snapshotValue["statements"] as? [Statement] ?? []
+        statements = snapshotValue["statements"] as! [Statement]
         
         ref = snapshot.ref
     }

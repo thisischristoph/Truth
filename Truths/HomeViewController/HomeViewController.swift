@@ -15,11 +15,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        PlayerManager.shared.setInitialCurrentUser()
         collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCell")
         
     }
     
     @IBAction func startGame(_ sender: Any) {
+        FirebaseManager.shared.createNewGame {
+            FirebaseManager.shared.addCurrentUserToGame()
+        }
+        self.performSegue(withIdentifier: "startSegue", sender: nil)
     }
     
     @IBAction func joinGame(_ sender: Any) {
