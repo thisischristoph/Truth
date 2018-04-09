@@ -17,7 +17,7 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
 
-pod 'Hashids'
+pod 'Kingfisher'
 
   target 'TruthsTests' do
     inherit! :search_paths

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JoinPlayerCell" id="gTV-IL-0wX" customClass="JoiningPlayerCollectionViewCell" customModule="Truths" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmr-4l-Rnl" customClass="RoundUIView" customModule="Truths" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="70"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u7k-JX-oYA" customClass="RoundUIImageView" customModule="Truths" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="54" height="54"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="u7k-JX-oYA" secondAttribute="height" multiplier="1:1" id="vjO-O4-00e"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="27"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ThisIsChristoph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krs-c6-VWs">
+                                <rect key="frame" x="70" y="27" width="102" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Krs-c6-VWs" firstAttribute="centerY" secondItem="wmr-4l-Rnl" secondAttribute="centerY" id="7nL-sd-fyO"/>
+                            <constraint firstItem="u7k-JX-oYA" firstAttribute="leading" secondItem="wmr-4l-Rnl" secondAttribute="leading" constant="8" id="OYY-2v-RCh"/>
+                            <constraint firstAttribute="bottom" secondItem="u7k-JX-oYA" secondAttribute="bottom" constant="8" id="cBb-EL-HJV"/>
+                            <constraint firstItem="Krs-c6-VWs" firstAttribute="leading" secondItem="u7k-JX-oYA" secondAttribute="trailing" constant="8" id="drf-t4-am1"/>
+                            <constraint firstItem="u7k-JX-oYA" firstAttribute="top" secondItem="wmr-4l-Rnl" secondAttribute="top" constant="8" id="ggc-VE-Rg3"/>
+                            <constraint firstAttribute="trailing" secondItem="Krs-c6-VWs" secondAttribute="trailing" constant="8" id="kXC-v3-KKQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wmr-4l-Rnl" secondAttribute="bottom" id="0jy-NX-kH8"/>
+                <constraint firstAttribute="trailing" secondItem="wmr-4l-Rnl" secondAttribute="trailing" id="8Hg-zw-H2c"/>
+                <constraint firstItem="wmr-4l-Rnl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ywu-UA-lKT"/>
+                <constraint firstItem="wmr-4l-Rnl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="msp-jl-Whe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="playerImageView" destination="u7k-JX-oYA" id="qdL-15-QyD"/>
+                <outlet property="playerNameLabel" destination="Krs-c6-VWs" id="Ev3-A7-stn"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
