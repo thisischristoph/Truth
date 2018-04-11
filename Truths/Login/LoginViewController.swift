@@ -11,6 +11,7 @@ import FBSDKLoginKit
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import TwitterKit
 
 class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
 
@@ -32,23 +33,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
                 return
             }
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-            Auth.auth().signIn(with: credential, completion: { (user, error) in
-                if let error = error {
-                    print("Login error: \(error.localizedDescription)")
-                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
-                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(okayAction)
-                    self.present(alertController, animated: true, completion: nil)
-                    
-                    return
-                }
-                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeView") {
-                    UIApplication.shared.keyWindow?.rootViewController = viewController
-                    self.dismiss(animated: true, completion: nil)
-                }
-                
-            })
-            
+            self.signIn(with: credential, view: self)
         }
     }
     
@@ -56,8 +41,17 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         GIDSignIn.sharedInstance().signIn()
     }
     
+    @IBAction func twitterSignInButtonPressed(_ sender: Any) {
+        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+            if (session != nil) {
+                print("signed in as \(session?.userName ?? "")");
+                let credential = TwitterAuthProvider.credential(withToken: session!.authToken, secret: session!.authTokenSecret)
+                self.signIn(with: credential, view: self)
+            }
+        })
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
         if error != nil {
             return
         }
@@ -65,6 +59,10 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             return
         }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        self.signIn(with: credential, view: self)
+    }
+    
+    func signIn(with credential: AuthCredential, view: UIViewController) {
         Auth.auth().signIn(with: credential, completion: { (user, error) in
             if let error = error {
                 print("Login error: \(error.localizedDescription)")
@@ -80,6 +78,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
             }
         })
     }
+    
+    
     
 
 }

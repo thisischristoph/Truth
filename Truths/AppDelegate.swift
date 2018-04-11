@@ -12,6 +12,7 @@ import FBSDKCoreKit
 import GoogleSignIn
 import FirebaseInstanceID
 import FirebaseMessaging
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        TWTRTwitter.sharedInstance().start(withConsumerKey: "3PEyWAyz819diL0Y40BGTDWww", consumerSecret: "NPqyG421R8brya1aaxYIwb1DOqZiRn1DX92XgLHUMSBwnY85zt")
         
         self.storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
         let currentUser = Auth.auth().currentUser
@@ -41,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var handled = false
         if url.absoluteString.contains("fb") {
             handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        } else if url.absoluteString.contains("twitter") {
+            handled = TWTRTwitter.sharedInstance().application(app, open: url, options: options)
         } else {
             handled = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
         }

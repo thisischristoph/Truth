@@ -28,6 +28,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @IBAction func joinGame(_ sender: Any) {
+        self.performSegue(withIdentifier: "scanSegue", sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

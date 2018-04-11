@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="yAu-PU-PXT">
-                                <rect key="frame" x="12" y="519" width="351" height="103"/>
+                                <rect key="frame" x="12" y="466" width="351" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIY-Ek-dry" customClass="RoundedButton" customModule="Truths" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
@@ -56,9 +56,26 @@
                                             <action selector="googleSignInButtonPressed:" destination="fLM-Fw-TIL" eventType="touchUpInside" id="FVi-D0-Qq0"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-8g-SXJ" customClass="RoundedButton" customModule="Truths" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106" width="351" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.67450980392156867" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="SIGN IN WITH TWITTER" image="twitter"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageLeftPadding">
+                                                <real key="value" value="-10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="twitterSignInButtonPressed:" destination="fLM-Fw-TIL" eventType="touchUpInside" id="H7H-cA-kTL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="103" id="DUW-8b-5Hr"/>
+                                    <constraint firstAttribute="height" constant="156" id="DUW-8b-5Hr"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -162,6 +179,7 @@
                     <connections>
                         <outlet property="collectionView" destination="0fN-2s-0kz" id="iPf-yQ-MKc"/>
                         <segue destination="VAg-d5-DjZ" kind="show" identifier="startSegue" id="pTF-HF-7e1"/>
+                        <segue destination="SRy-Qv-PZ3" kind="show" identifier="scanSegue" id="7T3-y1-mB1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -176,28 +194,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nna-Ki-od8">
-                                <rect key="frame" x="0.0" y="116" width="375" height="80"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nna-Ki-od8" customClass="BorderedCollectionView" customModule="Truths" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="166" width="375" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="MiO-3F-iXu"/>
+                                    <constraint firstAttribute="height" constant="120" id="MiO-3F-iXu"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="15" id="sbX-u3-h8m">
-                                    <size key="itemSize" width="180" height="68"/>
+                                    <size key="itemSize" width="180" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="16" minY="12" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="16" minY="10" maxX="0.0" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="JoinPlayerCell" id="bwR-1z-b3D" customClass="JoiningPlayerCollectionViewCell" customModule="Truths" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="12" width="180" height="68"/>
+                                        <rect key="frame" x="16" y="20" width="180" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="VAg-d5-DjZ" id="wPD-Lx-ibf"/>
                                     <outlet property="delegate" destination="VAg-d5-DjZ" id="K0q-gg-LPb"/>
@@ -224,18 +250,25 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pjs-MF-yP4">
-                                <rect key="frame" x="79" y="276" width="217" height="217"/>
+                                <rect key="frame" x="99" y="316" width="177" height="177"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="8fa-pv-xEf"/>
                                     <constraint firstAttribute="width" secondItem="pjs-MF-yP4" secondAttribute="height" multiplier="1:1" id="ZMY-Jk-6Sw"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g1-WS-FJz">
+                                <rect key="frame" x="16" y="142.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pjs-MF-yP4" firstAttribute="top" secondItem="Nna-Ki-od8" secondAttribute="bottom" priority="900" constant="80" id="1lc-So-Fkx"/>
+                            <constraint firstItem="pjs-MF-yP4" firstAttribute="top" secondItem="Nna-Ki-od8" secondAttribute="bottom" priority="900" constant="30" id="1lc-So-Fkx"/>
                             <constraint firstItem="Nna-Ki-od8" firstAttribute="leading" secondItem="MdX-Fk-dU6" secondAttribute="leading" id="8Ge-yk-xYr"/>
+                            <constraint firstItem="Nna-Ki-od8" firstAttribute="top" secondItem="9g1-WS-FJz" secondAttribute="bottom" constant="3" id="9o0-gn-U08"/>
                             <constraint firstItem="PiG-pH-7G0" firstAttribute="centerX" secondItem="2M4-eb-pna" secondAttribute="centerX" id="C2M-0j-Ide"/>
                             <constraint firstItem="pjs-MF-yP4" firstAttribute="centerX" secondItem="2M4-eb-pna" secondAttribute="centerX" id="GN3-BK-pIb"/>
                             <constraint firstItem="PiG-pH-7G0" firstAttribute="top" secondItem="pjs-MF-yP4" secondAttribute="bottom" priority="900" constant="50" id="Jh3-Yz-SjW"/>
@@ -243,8 +276,11 @@
                             <constraint firstItem="pjs-MF-yP4" firstAttribute="leading" secondItem="MdX-Fk-dU6" secondAttribute="leading" priority="900" constant="80" id="MPu-5B-VtW"/>
                             <constraint firstItem="PiG-pH-7G0" firstAttribute="leading" secondItem="MdX-Fk-dU6" secondAttribute="leading" priority="900" constant="16" id="Non-xe-RUU"/>
                             <constraint firstItem="pjs-MF-yP4" firstAttribute="centerX" secondItem="2M4-eb-pna" secondAttribute="centerX" id="Xvb-lG-6th"/>
-                            <constraint firstItem="Nna-Ki-od8" firstAttribute="top" secondItem="MdX-Fk-dU6" secondAttribute="top" id="cPH-62-6bf"/>
+                            <constraint firstItem="Nna-Ki-od8" firstAttribute="top" secondItem="MdX-Fk-dU6" secondAttribute="top" constant="50" id="cPH-62-6bf"/>
                             <constraint firstItem="MdX-Fk-dU6" firstAttribute="bottom" secondItem="PiG-pH-7G0" secondAttribute="bottom" constant="25" id="k4k-2T-q7r"/>
+                            <constraint firstItem="9g1-WS-FJz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MdX-Fk-dU6" secondAttribute="top" id="ol4-sy-cEE"/>
+                            <constraint firstItem="MdX-Fk-dU6" firstAttribute="trailing" secondItem="9g1-WS-FJz" secondAttribute="trailing" constant="16" id="qD7-Tj-34X"/>
+                            <constraint firstItem="9g1-WS-FJz" firstAttribute="leading" secondItem="MdX-Fk-dU6" secondAttribute="leading" constant="16" id="vU8-fM-UpD"/>
                             <constraint firstItem="Nna-Ki-od8" firstAttribute="trailing" secondItem="MdX-Fk-dU6" secondAttribute="trailing" id="xin-tk-Fg0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MdX-Fk-dU6"/>
@@ -256,7 +292,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdo-d0-08r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2845.5999999999999" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="2941.5999999999999" y="-0.44977511244377816"/>
+        </scene>
+        <!--Scan to join-->
+        <scene sceneID="0Gk-Ke-OQd">
+            <objects>
+                <viewController title="Scan to join" id="SRy-Qv-PZ3" customClass="ScanViewController" customModule="Truths" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mJr-4g-9ON">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="50Y-N2-8dJ"/>
+                    </view>
+                    <connections>
+                        <segue destination="VAg-d5-DjZ" kind="show" identifier="scanJoinSegue" id="DwW-xK-rAd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkb-ld-0Ql" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2054" y="812"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -317,7 +371,7 @@
         <!--Settings-->
         <scene sceneID="NLl-kr-vhd">
             <objects>
-                <viewController id="WMF-jX-EqC" customClass="SettingsViewController" customModule="Vote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WMF-jX-EqC" customClass="SettingsViewController" customModule="Truths" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xgB-cR-wEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -394,5 +448,9 @@
         <image name="google" width="21" height="21"/>
         <image name="second" width="30" height="30"/>
         <image name="settings" width="25" height="25"/>
+        <image name="twitter" width="21" height="21"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pTF-HF-7e1"/>
+    </inferredMetricsTieBreakers>
 </document>

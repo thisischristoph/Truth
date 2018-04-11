@@ -12,6 +12,7 @@ class JoiningPlayerCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var playerImageView: RoundUIImageView!
     @IBOutlet weak var playerNameLabel: UILabel!
+    @IBOutlet weak var view: RoundUIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

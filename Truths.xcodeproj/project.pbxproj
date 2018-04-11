@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A4ACF097B2E4333F4032182 /* Pods_Truths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D19C8D3EBA58A3C2AB1F433 /* Pods_Truths.framework */; };
 		DABC50CF38FF764D6383D353 /* Pods_TruthsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB2EAA74F02B7F6E745F485 /* Pods_TruthsTests.framework */; };
+		DFA60DF0207EB3370095E4EE /* BorderedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA60DEF207EB3370095E4EE /* BorderedCollectionView.swift */; };
 		DFFE26D2207A10CC0011F000 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE26D1207A10CC0011F000 /* AppDelegate.swift */; };
 		DFFE26D9207A10CC0011F000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFFE26D7207A10CC0011F000 /* Main.storyboard */; };
 		DFFE26DB207A10CD0011F000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFFE26DA207A10CD0011F000 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		DFFE2729207C19EB0011F000 /* JoiningPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFFE2727207C19EB0011F000 /* JoiningPlayerCollectionViewCell.xib */; };
 		DFFE272B207C1B030011F000 /* RoundUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE272A207C1B030011F000 /* RoundUIImageView.swift */; };
 		DFFE272E207C1FFD0011F000 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE272D207C1FFD0011F000 /* ImageExtensions.swift */; };
+		DFFE2731207E87A90011F000 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE2730207E87A90011F000 /* ScanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		CBD55D2B4AFBC8541A7DA27B /* Pods-TruthsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TruthsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TruthsTests/Pods-TruthsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCC66411D0455999A08F5D8D /* Pods-Truths.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Truths.release.xcconfig"; path = "Pods/Target Support Files/Pods-Truths/Pods-Truths.release.xcconfig"; sourceTree = "<group>"; };
 		DB6297D0A202C7D5C00A7F88 /* Pods-Truths.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Truths.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Truths/Pods-Truths.debug.xcconfig"; sourceTree = "<group>"; };
+		DFA60DEF207EB3370095E4EE /* BorderedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCollectionView.swift; sourceTree = "<group>"; };
 		DFFE26CE207A10CC0011F000 /* Truths.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truths.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFFE26D1207A10CC0011F000 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFFE26D8207A10CC0011F000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		DFFE2727207C19EB0011F000 /* JoiningPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JoiningPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		DFFE272A207C1B030011F000 /* RoundUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundUIImageView.swift; sourceTree = "<group>"; };
 		DFFE272D207C1FFD0011F000 /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
+		DFFE2730207E87A90011F000 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 				DFFE26F9207A19950011F000 /* Login */,
 				DFFE2711207A8B240011F000 /* HomeViewController */,
 				DFFE2722207C12030011F000 /* JoiningViewController */,
+				DFFE272F207E87860011F000 /* ScanViewController */,
 				DFFE26D7207A10CC0011F000 /* Main.storyboard */,
 				DFFE26DA207A10CD0011F000 /* Assets.xcassets */,
 				DFFE26DC207A10CD0011F000 /* LaunchScreen.storyboard */,
@@ -169,6 +174,7 @@
 			children = (
 				DFFE26F7207A151E0011F000 /* RoundedButton.swift */,
 				DFFE2719207ACC3B0011F000 /* RoundUIView.swift */,
+				DFA60DEF207EB3370095E4EE /* BorderedCollectionView.swift */,
 				DFFE272A207C1B030011F000 /* RoundUIImageView.swift */,
 				DFFE2720207C0EEE0011F000 /* QRCode.swift */,
 			);
@@ -264,6 +270,14 @@
 				DFFE272D207C1FFD0011F000 /* ImageExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DFFE272F207E87860011F000 /* ScanViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE2730207E87A90011F000 /* ScanViewController.swift */,
+			);
+			path = ScanViewController;
 			sourceTree = "<group>";
 		};
 		ED23F0C5BAE90481ADF7A437 /* Pods */ = {
@@ -410,6 +424,8 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -423,6 +439,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -457,10 +475,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Truths/Pods-Truths-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -530,6 +552,7 @@
 				DFFE2724207C122E0011F000 /* JoiningViewController.swift in Sources */,
 				DFFE2710207A6B9E0011F000 /* Statement.swift in Sources */,
 				DFFE2721207C0EEE0011F000 /* QRCode.swift in Sources */,
+				DFFE2731207E87A90011F000 /* ScanViewController.swift in Sources */,
 				DFFE271F207C08690011F000 /* PlayerManager.swift in Sources */,
 				DFFE271A207ACC3B0011F000 /* RoundUIView.swift in Sources */,
 				DFFE26D2207A10CC0011F000 /* AppDelegate.swift in Sources */,
@@ -542,6 +565,7 @@
 				DFFE26FF207A25D10011F000 /* SettingsViewController.swift in Sources */,
 				DFFE272B207C1B030011F000 /* RoundUIImageView.swift in Sources */,
 				DFFE2717207AC5C80011F000 /* HomeCollectionViewCell.swift in Sources */,
+				DFA60DF0207EB3370095E4EE /* BorderedCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

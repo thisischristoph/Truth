@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Scan QR code to join games</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -68,6 +70,12 @@
 				<string>com.googleusercontent.apps.1080228378112-okirv055otqj69q6qgs6539aafdq9680</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>twitterkit-3PEyWAyz819diL0Y40BGTDWww</string>
+                </array>
+            </dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>1769346539789219</string>
@@ -75,6 +83,8 @@
 	<string>2 Truths 1 Lie</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>twitterauth</string>
+		<string>twitter</string>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>

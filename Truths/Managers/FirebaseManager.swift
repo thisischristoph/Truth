@@ -16,32 +16,24 @@ class FirebaseManager {
     var currentGameReference: DatabaseReference!
     var gamePlayers: [Player] = []
     
+    func setCurrentGameReference(to id: String) {
+        currentGameReference = Database.database().reference(withPath: "games").child(id)
+    }
+    
     func createNewGame(completion: @escaping () -> Void) {
-        currentGameReference = Database.database().reference().child("Games").childByAutoId()
+        currentGameReference = Database.database().reference().child("games").childByAutoId()
         completion()
     }
     
     func addCurrentUserToGame() {
        let player = PlayerManager.shared.currentUser
-        currentGameReference.child("Players").child(PlayerManager.shared.currentUser.uid).updateChildValues(["name":player?.name ?? "",
+        currentGameReference.child("players").child(PlayerManager.shared.currentUser.uid).updateChildValues(["name":player?.name ?? "",
                                                                                                              "uid":player?.uid ?? "",
                                                                                                              "profileURL":player?.profileURLString ?? ""])
     }
     
-//    func observeQuestions(completion: @escaping () -> Void){
-//        GameManager.shared.currentGameReference.child(gameKeys.questions.rawValue).observe(.value, with: { snapshot in
-//            var updatedQuestions: [Question] = []
-//            for item in snapshot.children {
-//                let question = Question(snapshot: item as! DataSnapshot)
-//                updatedQuestions.append(question)
-//            }
-//            QuestionManager.shared.questions = updatedQuestions
-//            completion()
-//        })
-//    }
-    
     func observePlayers(completion: @escaping () -> Void) {
-        FirebaseManager.shared.currentGameReference.child("Players").observe(.value, with: { snapshot in
+        FirebaseManager.shared.currentGameReference.child("players").observe(.value, with: { snapshot in
             var updatedPlayers: [Player] = []
             for item in snapshot.children {
                 let player = Player(snapshot: item as! DataSnapshot)

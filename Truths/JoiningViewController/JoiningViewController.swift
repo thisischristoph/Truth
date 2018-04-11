@@ -9,6 +9,8 @@
 import UIKit
 
 class JoiningViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    let cellColours: [UIColor] = [.red, .blue, .green, .yellow, .orange]
 
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -33,7 +35,7 @@ class JoiningViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: JoiningPlayerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "JoinPlayerCell", for: indexPath) as! JoiningPlayerCollectionViewCell
         let player = FirebaseManager.shared.gamePlayers[indexPath.row]
-        
+        cell.view.backgroundColor = cellColours[indexPath.row % cellColours.count]
         cell.playerImageView.kingfisherImageFromURLString(urlString: player.profileURLString)
         cell.playerNameLabel.text = player.name
         

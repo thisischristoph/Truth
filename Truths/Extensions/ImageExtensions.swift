@@ -18,6 +18,7 @@ extension UIImageView {
     
     public func kingfisherImageFromURLString(urlString: String) {
         let url = NSURL(string: urlString)! as URL
+        self.setLoadingImage()
         self.kf.setImage(with: url)
     }
     

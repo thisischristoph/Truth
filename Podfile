@@ -16,6 +16,7 @@ pod 'Firebase/Messaging'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
+pod 'TwitterKit'
 
 pod 'Kingfisher'
 
